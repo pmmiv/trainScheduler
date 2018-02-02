@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Train Scheduler</title>
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+</head>
+<body>
+	<div class="container">
+		<section class="jumbotron head">
+			<h1>Train Scheduler</h1>
+			<h2>Where you can schedule a train.</h2>
+			<h2>and watch it the time decrease until it 'arrives'.</h2>
+		</section>
+		<div class="row">
+			<section class="col-12">
+				<h4>Current Train Schedule</h4>
+				<table class="table" id="trainSchedule">
+					<tr>
+						<th>Train Name</th>
+						<th>Destination</th>
+						<th>Frequency (min)</th>
+						<th>Next Arrival</th>
+						<th>Minutes Away</th>
+					</tr>
+				</table>
+			</section>
+		</div>
+		<br>
+		<div class="row">
+			<section class="col-12">
+				<h4>Add Train</h4>
+					<form>
+						<!-- name significance? -->
+						<p>Train Name</p>
+						<input type="text" name="tName" id="tName">
+						<p>Destination</p>
+						<input type="text" name="tDest" id="tDest">
+						<!-- maybe use a dropdown to restrict how dumb the user can be? -->
+						<p>First Train Time (HH:mm - military time)</p>
+						<input type="text" name="tFirstTime" id="tFirstTime">
+						<p>Frequency (min)</p>
+						<input type="text" name="tFreq" id="tFreq">
+						<br>
+						<button id="submit">Submit</button>
+					</form>
+			</section>
+		</div>
+	</div>
+
+
+	<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+	<script src="assets/js/app.js"></script>
+</body>
+</html>
