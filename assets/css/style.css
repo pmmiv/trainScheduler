@@ -9,6 +9,17 @@
 	color: #FAF3D9;
 }
 
+#clear {
+	background-color: #A85D54;
+	border-color: #A85D54;
+}
+
+#submit {
+	background-color: #C1C9A7;
+	border-color: #C1C9A7;
+	margin-right: 5px;
+}
+
 section, form {
 	background-color: #FAF3D9;
 	color: #8C123F;
@@ -18,15 +29,29 @@ section, form {
 	margin-top: 20px;
 }
 
+.table td {
+ border-color: #A85D54;
+}
+
+.table thead th {
+	border-color: #8C123F;
+	border-bottom: 0;
+}
+
+#formAlert {
+	display: none;
+}
+
 body {
 	font-family: 'Montserrat', sans-serif;
 	/*background-color: #DED5B6;*/
 	background-image: url(../images/background.jpg);
-	background-size: cover;
+	background-size: auto;
 }
 
 button {
 	margin-bottom: 10px;
+	float: right;
 }
 
 h1 {
@@ -71,4 +96,13 @@ h4 {
 
 form {
 	margin-bottom: 20px;
+	border-radius: 5px;
+}
+
+section {
+	border-radius: 5px;
+}
+
+th {
+	font-weight: bold;
 }

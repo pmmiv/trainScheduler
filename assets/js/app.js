@@ -1,4 +1,3 @@
-// Initialize Firebase
 var config = {
   apiKey: "AIzaSyCheowTlssv5Oy6qR1bvrSuXmldwwF3VtM",
   authDomain: "train-scheduler-4005c.firebaseapp.com",
@@ -21,16 +20,16 @@ function validateForm () {
   var c = $('#tFirstTime').val().trim();
   var d = $('#tFreq').val().trim();
   if (a == "") {
-    alert("The train must have a name.");
+    $('#formAlert').html('<strong>Whoops!</strong> What is the train\'s name?').show();
     return false;
   } else if (b == "") {
-    alert("The train must have a destination.");
+    $('#formAlert').html('<strong>Yikes!</strong> Where is the train going?').show();
     return false;
   } else if (c == "") {
-    alert("The train needs a start time.");
+    $('#formAlert').html('<strong>Uh oh!</strong> When does the first train arrive?').show();
     return false;
   } else if (d == "") {
-    alert("The train must have an arrival frequency.");
+    $('#formAlert').html('<strong>Umm..</strong> How often does the train arrive?').show();
     return false;
   } else {
     return true;
@@ -41,12 +40,11 @@ $( document ).ready(function() {
   setInterval(timeUpdate, 60000);
 });
 
-// on click pull the whole form data and push it to the firebase
 $('#submit').click(function(event){
+  event.preventDefault();
   if (validateForm()) {
-
+    $('#formAlert').hide();
     timeUpdate();
-    event.preventDefault();
     var name = $('#tName').val().trim();
     var dest = $('#tDest').val().trim();
     var firstTime = $('#tFirstTime').val().trim();
@@ -65,10 +63,9 @@ $('#submit').click(function(event){
   }
 });
 
-// just here to clear database
 $('#clear').click(function(event){
   database.ref("/trains").remove();
-  console.log("Database Clear")
+  $('.table').html('<thead><tr><th>Train Name</th><th>Destination</th><th>Frequency</th><th>Next Arrival</th><th>Minutes Away</th></tr></thead><tbody id="trainSchedule"></tbody>');
 });
 
 database.ref("/trains").on("child_added", function(childSnapshot) {
