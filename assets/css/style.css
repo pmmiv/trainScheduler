@@ -9,16 +9,66 @@
 	color: #FAF3D9;
 }
 
-section {
+section, form {
 	background-color: #FAF3D9;
 	color: #8C123F;
 }
 
-
-body {
-	background-color: #DED5B6;
+.jumbotron {
+	margin-top: 20px;
 }
 
-#submit {
+body {
+	font-family: 'Montserrat', sans-serif;
+	/*background-color: #DED5B6;*/
+	background-image: url(../images/background.jpg);
+	background-size: cover;
+}
+
+button {
 	margin-bottom: 10px;
+}
+
+h1 {
+	font-size: 2em;
+} 
+
+h2 {
+	font-size: 2.5em;
+}
+
+h1, h2 {
+	text-align: center;
+}
+
+@media (min-width: 992px) {
+	h1 {
+		font-size: 8em;
+		margin-top: -40px;
+		margin-bottom: 0px;
+	}
+
+	h2 {
+		margin-top: -60px;
+		margin-bottom: -30px;
+		text-align: left;
+		font-size: 2em;
+	}
+
+	.left {
+		display: inline-block;
+	}
+
+	.right {
+		text-align: right;
+	}
+}
+
+
+h4 {
+	margin-top: 10px;
+}
+
+form {
+	margin-bottom: 20px;
 }

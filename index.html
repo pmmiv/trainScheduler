@@ -3,94 +3,102 @@
 <head>
 	<meta charset="utf-8">
 	<title>Train Scheduler</title>
+	<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 	<script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-	<!-- Moment.JS -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/locale/af.js"></script>
-	<!-- Bootstrap Jquery -->
-	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 </head>
 <body>
-	<div class="container">
+	<div class="container-fluid">
 		<section class="jumbotron head">
-			<h1>Train Scheduler</h1>
-			<h2>Where you can schedule a train.</h2>
-			<h2>and watch it the time decrease until it 'arrives'.</h2>
+			<h1 class="right" id="currentTime"></h2>
+			<h2><i class="fas fa-train"></i> Scheduler.</h1>
 		</section>
+	</div>
+<!-- 	<div class="alert alert-danger" role="alert" id="a">
+	  <strong>Sorry!</strong> The train must have a name.
+	</div>
+	<div class="alert alert-danger" role="alert" id="b">
+	  <strong>Sorry!</strong> The train must have a destination.
+	</div>
+	<div class="alert alert-danger" role="alert" id="c">
+	  <strong>Sorry!</strong> The train must have an initial start time.
+	</div>
+	<div class="alert alert-danger" role="alert" id="d">
+	  <strong>Sorry!</strong> How often is the train coming?
+	</div>
+ -->
+
+	<div class="container">
 		<div class="row">
 			<section class="col-12">
-				<h4>Current Train Schedule</h4>
-				<table class="table" id="trainSchedule">
-					<tr>
-						<th>Train Name</th>
-						<th>Destination</th>
-						<th>Frequency (min)</th>
-						<th>Next Arrival</th>
-						<th>Minutes Away</th>
-					</tr>
+				<h4 class="left">Train Schedule</h4>
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th>Train Name</th>
+							<th>Destination</th>
+							<th>Frequency</th>
+							<th>Next Arrival</th>
+							<th>Minutes Away</th>
+						</tr>
+					</thead>
+					<tbody id="trainSchedule"></tbody>
 				</table>
 			</section>
 		</div>
 		<br>
 		<div class="row">
-			<section class="col-12">
-				<div class="container">
-					<div class="row">
-						<div class="col-12">
-							<h4>Add Train</h4>
-								<!-- <form> -->
-									<!-- name significance? -->
+			<form class="col-12">
+				<h4>Add Train</h4>
+				<div class="form-group row">
+				  <label for="example-text-input" class="col-xl-1 col-lg-2 col-form-label">Name</label>
+				  <div class="col-xl-5 col-lg-4 col-md-10">
+				    <input class="form-control" type="text" value="Darjeeling Limited" id="tName">
+				  </div>
+					<!-- <p>Train Name</p>
+					<input type="text" name="tName" id="tName">
+					<p>Destination</p> -->
+				
 
-									<div class="form-group row">
-									  <label for="example-text-input" class="col-1 col-form-label">Name</label>
-									  <div class="col-5">
-									    <input class="form-control" type="text" value="Doug Benson" id="tName">
-									  </div>
-									<!-- </div> -->
-									<!-- <p>Train Name</p>
-									<input type="text" name="tName" id="tName">
-									<p>Destination</p> -->
-									
-									<!-- <div class="form-group row"> -->
-									  <label for="example-text-input" class="col-1 col-form-label">Destination</label>
-									  <div class="col-5">
-									    <input class="form-control" type="text"  value="Greensville" id="tDest">
-									  </div>
-									</div>
-									<!-- <p>Destination</p>
-									<input type="text" name="tDest" id="tDest"> -->
-									
+				  <label for="example-text-input" class="col-xl-1 col-lg-2 col-form-label">Destination</label>
+				  <div class="col-xl-5 col-lg-4 col-md-10">
+				    <input class="form-control" type="text"  value="Jodhpur, Rajasthan" id="tDest">
+				  </div>
+				</div>
+				<!-- <p>Destination</p>
+				<input type="text" name="tDest" id="tDest"> -->
+				
 
-									<div class="form-group row">
-									  <label for="example-time-input" class="col-1 col-form-label">Time CST</label>
-									  <div class="col-5">
-									    <input class="form-control" type="time" value="16:20:00" id="tFirstTime">
-									  </div>
-									<!-- </div> -->
-									<!-- <p>First Train Time (HH:mm - military time)</p>
-									<input type="text" name="tFirstTime" id="tFirstTime">-->
+				<div class="form-group row">
+				  <label for="example-time-input" class="col-xl-1 col-lg-2 col-form-label">Time</label>
+				  <div class="col-xl-5 col-lg-4 col-md-10">
+				    <input class="form-control" type="time" value="11:16" id="tFirstTime">
+				  </div>
+					<!-- <p>First Train Time (HH:mm - military time)</p>
+					<input type="text" name="tFirstTime" id="tFirstTime">-->
 
-									<!-- <div class="form-group row"> -->
-									  <label for="example-number-input" class="col-1 col-form-label">Frequency (mins)</label>
-									  <div class="col-5">
-									    <input class="form-control" type="number" value="69" id="tFreq">
-									  </div>
-									</div>
-									<!-- <p>Frequency (min)</p>
-									<input type="text" name="tFreq" id="tFreq"> -->
-									<button type="button" class="btn btn-primary" id="submit">Submit</button>
-								<!-- </form> -->
-							</div>
-						</div>
-					</div>
-			</section>
+				  <label for="example-number-input" class="col-xl-1 col-lg-2 col-form-label">Frequency (mins)</label>
+				  <div class="col-xl-5 col-lg-4 col-md-10">
+				    <input class="form-control" type="number" value="91" id="tFreq">
+				  </div>
+				</div>
+				<!-- <p>Frequency (min)</p>
+				<input type="text" name="tFreq" id="tFreq"> -->
+				<button type="submit" class="btn btn-primary" id="submit">Submit</button>
+				<button type="button" class="btn btn-danger" id="clear">Clear</button>
+			</form>
 		</div>
 	</div>
 
+	<!-- Moment.JS -->
+	<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+	<!-- Bootstrap Jquery -->
+	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 	<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
 	<script src="assets/js/app.js"></script>
 </body>
