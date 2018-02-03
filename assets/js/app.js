@@ -25,6 +25,10 @@
       freq: freq,
       dateAdded: firebase.database.ServerValue.TIMESTAMP
     })
+    $('#tName').val("");
+    $('#tDest').val("");
+    $('#tFirstTime').val("");
+    $('#tFreq').val("");
   });
 
   database.ref("/trains").on("child_added", function(childSnapshot) {

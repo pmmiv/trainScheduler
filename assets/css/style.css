@@ -18,3 +18,7 @@ section {
 body {
 	background-color: #DED5B6;
 }
+
+#submit {
+	margin-bottom: 10px;
+}

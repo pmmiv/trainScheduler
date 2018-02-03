@@ -7,6 +7,12 @@
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 	<script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+	<!-- Moment.JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/locale/af.js"></script>
+	<!-- Bootstrap Jquery -->
+	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 </head>
 <body>
 	<div class="container">
@@ -32,25 +38,58 @@
 		<br>
 		<div class="row">
 			<section class="col-12">
-				<h4>Add Train</h4>
-					<form>
-						<!-- name significance? -->
-						<p>Train Name</p>
-						<input type="text" name="tName" id="tName">
-						<p>Destination</p>
-						<input type="text" name="tDest" id="tDest">
-						<!-- maybe use a dropdown to restrict how dumb the user can be? -->
-						<p>First Train Time (HH:mm - military time)</p>
-						<input type="text" name="tFirstTime" id="tFirstTime">
-						<p>Frequency (min)</p>
-						<input type="text" name="tFreq" id="tFreq">
-						<br>
-						<button id="submit">Submit</button>
-					</form>
+				<div class="container">
+					<div class="row">
+						<div class="col-12">
+							<h4>Add Train</h4>
+								<!-- <form> -->
+									<!-- name significance? -->
+
+									<div class="form-group row">
+									  <label for="example-text-input" class="col-1 col-form-label">Name</label>
+									  <div class="col-5">
+									    <input class="form-control" type="text" value="Doug Benson" id="tName">
+									  </div>
+									<!-- </div> -->
+									<!-- <p>Train Name</p>
+									<input type="text" name="tName" id="tName">
+									<p>Destination</p> -->
+									
+									<!-- <div class="form-group row"> -->
+									  <label for="example-text-input" class="col-1 col-form-label">Destination</label>
+									  <div class="col-5">
+									    <input class="form-control" type="text"  value="Greensville" id="tDest">
+									  </div>
+									</div>
+									<!-- <p>Destination</p>
+									<input type="text" name="tDest" id="tDest"> -->
+									
+
+									<div class="form-group row">
+									  <label for="example-time-input" class="col-1 col-form-label">Time CST</label>
+									  <div class="col-5">
+									    <input class="form-control" type="time" value="16:20:00" id="tFirstTime">
+									  </div>
+									<!-- </div> -->
+									<!-- <p>First Train Time (HH:mm - military time)</p>
+									<input type="text" name="tFirstTime" id="tFirstTime">-->
+
+									<!-- <div class="form-group row"> -->
+									  <label for="example-number-input" class="col-1 col-form-label">Frequency (mins)</label>
+									  <div class="col-5">
+									    <input class="form-control" type="number" value="69" id="tFreq">
+									  </div>
+									</div>
+									<!-- <p>Frequency (min)</p>
+									<input type="text" name="tFreq" id="tFreq"> -->
+									<button type="button" class="btn btn-primary" id="submit">Submit</button>
+								<!-- </form> -->
+							</div>
+						</div>
+					</div>
 			</section>
 		</div>
 	</div>
-
 
 	<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
 	<script src="assets/js/app.js"></script>
