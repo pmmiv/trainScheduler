@@ -1,4 +1,4 @@
-# trainScheduler
+# Train Scheduler
 ## App for Scheduling Trains
 
 by PM Milam IV
